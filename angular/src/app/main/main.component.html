@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary text-white justify-content-between">Admin panel
+    <button type="button" class="btn btn-primary mr-0 ml-auto text-white" (click)="logout()" style="margin-right:0">Logout</button></nav>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">City: {{cityName}}</div>
+                <div class="card-body" *ngIf="data">
+                    <table class="w-100">
+                        <tr>
+                            <td><strong>Weather:</strong></td>
+                            <th><img src="http://openweathermap.org/img/w/{{data.weather[0].icon}}.png"></th>
+                        </tr>
+                        <tr>
+                            <td><strong>Country:</strong></td>
+                            <th>{{data.sys.country}}</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Temperature:</strong></td>
+                            <th>{{data.main.temp}} °C</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Temperature feels like:</strong></td>
+                            <th>{{data.main.feels_like}} °C</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Pressure:</strong></td>
+                            <th>{{data.main.pressure}} mbar</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Wind speed:</strong></td>
+                            <th>{{data.wind.speed}} km/h</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Humidity:</strong></td>
+                            <th>{{data.main.humidity}} %</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Latitude:</strong></td>
+                            <th>{{data.coord.lat}}</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Longitude:</strong></td>
+                            <th>{{data.coord.lon}}</th>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="card-body" *ngIf="!data">
+                    Loading ...
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-8">
+                            <input type="text"  [(ngModel)]="search" class="form-control" placeholder="Type the city name here">
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary btn-block text-white" (click)="fetchInfo()">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
