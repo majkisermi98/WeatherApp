@@ -36,7 +36,7 @@ namespace dotnet_core.Common
                 mail.Priority = MailPriority.High;
                 _client.Host = "smtp.gmail.com";
                 _client.Port = 587;
-                _client.Credentials = new NetworkCredential("siper322@gmail.com", "gmlixcmazstusgwc");
+                _client.Credentials = new NetworkCredential("yourname@gmail.com", "********");
                 _client.EnableSsl = true;
                 _client.UseDefaultCredentials = false;
                 await _client.SendMailAsync(mail);
